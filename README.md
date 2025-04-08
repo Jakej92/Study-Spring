@@ -1,9 +1,11 @@
 Framework
+
 	라이브러리란, 개발자가 작성해 놓은 코드 파일을 의미하며,
 	API란, 여러 라이브러리가 모여있는 패키지(JAR)를 의미한다.
 	프레임워크란, API가 굉장히 많이 모여져서 덩치가 커져있는 것을 의미한다.
 
 Framework의 장점
+
 	개발에 필요한 구조를 이미 코드로 만들어 놓았기 때문에, 실력이 부족한 개발자라 하더라도
 	반쯤 완성된 상태에서 필요한 부분을 조립하는 형태의 개발이 가능하다.
 	회사 입장에서는 프레임워크를 사용하면 일정한 품질이 보장되는 결과물을 얻을 수 있고,
@@ -11,6 +13,7 @@ Framework의 장점
 	개발 시간을 단축할 수 있다.
 
 Spring Framework
+
 	경량 프레임워크.
 	예전 프레임워크는 다양한 경우를 처리하기 위해 여러 기능을 넣다 보니
 	하나의 기능을 위해서 아주 많은 구조가 필요했다. 기술이 너무나 복잡하고 방대했기 때문에,
@@ -19,6 +22,7 @@ Spring Framework
 	모든 개발이 가능하도록 구성되어 있다.
 
 Spring Framework의 특징
+
 	- POJO 기반의 구성
 	- DI를 통한 객체간의 관계 구성
 	- AOP 지원
@@ -27,11 +31,13 @@ Spring Framework의 특징
 	- WAS에 종속적이지 않은 개발 환경
 
 ▶ POJO 기반의 구성
+
 	Plain Old Java Object.
 	오래된 방식의 간단한 자바 객체라는 의미이며, JAVA 코드에서 일반적으로 객체를 구성하는 방식을
 	Spring Framework에서 그대로 사용할 수 있다는 의미이다.
 
 ▶ DI를 통한 객체간의 관계 구성
+
 	의존성(Dependency)이란 하나의 객체가 다른 객체 없이 제대로 된 역할을 할 수 없다는 것을 의미한다.
 	예를 들어 A 객체가 B 객체 없이 동작이 불가능한 상황을 "A가 B에 의존적이다"라고 표현한다.
 	하지만 직접 A 필드에 B 객체를 선언하면 결합성이 단단해지기 때문에 유연성이 떨어진다.
@@ -55,6 +61,7 @@ Spring Framework의 특징
 	이는 Spring Container(Bean Container)에 저장된다.
 
 ▶ AOP 지원
+
 	관점 지향 프로그래밍.
 	좋은 개발 환경에서는 개발자가 비지니스 로직에만 집중할 수 있게 한다.
 	Spring Framework는 반복적인 코드를 분리해줌으로써 핵심 비지니스 로직에만 집중할 수 있는 방법을 제공한다.
@@ -66,19 +73,23 @@ Spring Framework의 특징
 	최소화 할 수 있으며, 원하는 관심사의 유지보수가 수월한 코드로 구성이 가능해진다.
 	
 ▶ Transaction 관리
+
 	DB 작업 시, 트랜잭션을 매번 상황에 맞게 관리하지 않고 어노테이션을 사용하여 트랜잭션 영역을 구성한 뒤
 	특정 예외 발생 시 자동으로 롤백을 처리하거나 커밋을 처리한다.
 	
 ▶ WAS에 종속적이지 않은 개발 환경
+
 	전체 Application을 실행하지 않아도 기능별 단위 테스트가 용이하기 때문에 버그를 줄이고
 	개발 시간을 단축할 수 있다.
 
 Spring Boot
+
 	Spring Framework를 사용함에 있어서 초기 설정 및 필요한 라이브러리에 대한 설정의 어려움이 많으며,
 	시간이 너무 오래 걸린다. 따라서 자동 설정과 개발에 필요한 모든것을 관리해주는 Spring Boot를 선호한다.
 	각 코어 및 라이브러리의 버전들도 맞추어야 하지만 Spring Boot를 사용하면 이러한 복잡성을 해결하기에도 좋다.
 
 프로젝트 기본 경로
+
 	1) src/main/java				: 서버단 JAVA 파일
 	2) src/test/java				: 단위 테스트 JAVA 파일
 	3) src/main/resources			: 설정 파일 및 뷰단
@@ -93,30 +104,35 @@ Spring Boot
 	두 개의 클래스 간의 관계를 구성한 뒤 의존성 주입을 통해 해당 객체 단위 테스트 진행
 
 Qualifier
+
 	@Autowired를 통해 객체를 주입할 때, 같은 타입의 객체가 여러 개 있다면 구분할 수 없다.
 	이 때, @Qualifier를 통해 식별자를 설정하면 원하는 객체를 주입받을 수 있다.
 
 Qualifier 실습
+
 	Restaurant.java, Outback.java, Vips.java 세 객체를 선언한 뒤 상속관계를 판단하여 하나의 객체를 인터페이스로 선언한다.
 	각 레스토랑에 셀바 이용 가능 여부와 스테이크 가격을 필드로 구성한다. 스테이크 가격은 항상 똑같지만 각 레스토랑에서 변경 가능하다.
 	기본 레스토랑은 아웃백로 설정한다.
 
 Spring MVC(Front-Controller Pattern)
+
 				HandlerMaping
 	REQUEST		  ①	      ②↕	   ③		       ④
-		]	  ↔	DispatcherServlet   ↔  HandlerAdapter   ↔  Controller
+		]	  ↔	DispatcherServlet  ↔  HandlerAdapter  ↔  Controller
 	RESPONSE	  ⑦	⑥↕	     ⑤↕
 				View	ViewResolver
 				   ↕
 				HTML 및 기타	
 
 Spring MVC 패턴의 특징
+
 	- HttpServletRequest, HttpServletResponse를 거의 사용할 필요 없이 구현가능
 	- 다양한 타입의 파라미터 처리, 다양한 타입의 리턴 타입 사용 가능
 	- GET방식, POST방식 등 전송 방식에 대한 처리를 어노테이션으로 처리
 	- 상속/인터페이스 방식 대신 어노테이션으로만 설정 가능
 =======================================================================================================
 REST
+
 	Representational State Transfer
 
 	언제 어디서든 누구든 서버에 요청을 보낼 때
@@ -146,23 +162,29 @@ REST
 	7. URI에 사용되는 영어 단어는 복수로 작성한다.
 =======================================================================================================
 3 - tier (Three Tier)
+
 	스프링 프로젝트는 3-tier 방식으로 설계된다.
 
 ▶ Presentation Tier - 화면 계층
+
 	화면에 보여주는 기술을 사용하는 영역(Controller)
 
 ▶ Business Tier - 비지니스 계층
+
 	순수한 비지느스 로직을 담고 있는 영역(Service)
 
 ▶ Persistence Tier - 영속 계층
+
 	데이터를 어떤 방식으로 보관하고, 사용하는가에 대한 설계가 들어가는 영역(Mapper)	
 
 
 3-tier의 목적
+
 	각 영역은 독립적으로 설계되어 나중에 특정 기술이 변하더라도  필요한 부분을
 	부품처럼 쉽게 교환할 수 있게 하자는 방식이다.
 
 3-tier의 구조
+
 	Presentation ↔ Business ↔ Persistence ↔ DBMS </br>
 	      ↑        	 ↑          ↑		  ↑  </br>
 	Controller    Service     Repository   Mapper
