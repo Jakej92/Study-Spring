@@ -163,6 +163,6 @@ REST
 	부품처럼 쉽게 교환할 수 있게 하자는 방식이다.
 
 3-tier의 구조
-	Presentation ↔ Business ↔ Persistence ↔ DBMS
-	      ↑        	 ↑           	   ↑		  ↑
-	Controller         Service      Repository     Mapper
+	Presentation ↔ Business ↔ Persistence ↔ DBMS </br>
+	      ↑        	 ↑          ↑		  ↑  </br>
+	Controller    Service     Repository   Mapper
