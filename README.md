@@ -185,6 +185,6 @@ REST
 
 3-tier의 구조
 
-	Presentation ↔ Business ↔ Persistence ↔ DBMS </br>
-	      ↑        	 ↑          ↑		  ↑  </br>
+	Presentation ↔ Business ↔ Persistence ↔ DBMS 
+	      ↑        	 ↑          ↑		  ↑  
 	Controller    Service     Repository   Mapper
